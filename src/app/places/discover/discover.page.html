@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar color='warning'>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">Open</ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" color='danger'>Discover Category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='12'>
+        <ion-card>
+          <ion-card-header class="ion-text-center" padding>
+            <ion-card-title>
+                {{getPerson[0].name}}
+            </ion-card-title>
+            <ion-img [src]='getPerson[0].image'></ion-img>
+            <ion-card-subtitle>
+              {{getPerson[0].category}}
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-content>
+            {{getPerson[0].about}}
+          </ion-content>
+
+          <div text-right >
+            <ion-button
+            fill='clear'
+            color='primary'
+            routerDirection='backward'
+            [routerLink]="[
+                '/',
+                'places',
+                'tabs',
+                'discover',
+                getPerson[0].name
+            ]">
+              MORE
+            </ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+
+    <ion-row>
+
+    </ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+                {{getPerson[1].name}}
+            </ion-card-title>
+            <ion-img [src]='getPerson[1].image'></ion-img>
+            <ion-card-subtitle>
+              {{getPerson[1].category}}
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-content>
+            {{getPerson[1].about}}
+          </ion-content>
+        </ion-card>
+      </ion-col>
+
+
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+                {{getPerson[2].name}}
+            </ion-card-title>
+            <ion-img [src]='getPerson[2].image'></ion-img>
+            <ion-card-subtitle>
+              {{getPerson[2].category}}
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-content>
+            {{getPerson[2].about}}
+          </ion-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+
+
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                  {{getPerson[3].name}}
+              </ion-card-title>
+              <ion-img [src]='getPerson[3].image'></ion-img>
+              <ion-card-subtitle>
+                {{getPerson[3].category}}
+              </ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-content>
+              {{getPerson[3].about}}
+            </ion-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size='12'>
+          <ion-list>
+            <ion-item *ngFor='let person of getPerson' [routerLink]="['','places','tabs','discover',person.name]" detail>
+              <ion-thumbnail >
+                <ion-img [src]='person.image'></ion-img>
+              </ion-thumbnail>
+
+              <ion-label  class="ion-margin">
+                <h2>{{person.name}}</h2>
+                <p>{{person.category}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+  </ion-grid>
+</ion-content>
